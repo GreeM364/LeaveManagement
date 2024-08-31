@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LeaveManagement.Application.Exceptions;
 using LeaveManagement.Application.Interfaces.Persistence;
 using MediatR;
 
@@ -24,6 +25,11 @@ public class GetLeaveTypeDetailsQueryHandler
     {
         var leaveTypeDetails = await _leaveTypeRepository
                 .GetByIdAsync(request.LeaveTypeId);
+        
+        if (leaveTypeDetails == null)
+        {
+            throw new NotFoundExceptions(nameof(LeaveType), request.LeaveTypeId);
+        }
         
         var result = _mapper.Map<LeaveTypeDetailsDto>(leaveTypeDetails);
 

@@ -1,4 +1,5 @@
-﻿using LeaveManagement.Application.Interfaces.Persistence;
+﻿using LeaveManagement.Application.Exceptions;
+using LeaveManagement.Application.Interfaces.Persistence;
 using MediatR;
 
 namespace LeaveManagement.Application.Features.LeaveType.Commands.DeleteLeaveType;
@@ -20,8 +21,13 @@ public class DeleteLeaveTypeCommandHandler
     {
         var leaveTypeToDelete = await _leaveTypeRepository
                 .GetByIdAsync(request.Id);
+
+        if (leaveTypeToDelete == null)
+        {
+            throw new NotFoundExceptions(nameof(LeaveType), request.Id);
+        }
         
-        var leaveType = await _leaveTypeRepository
+        await _leaveTypeRepository
                 .DeleteAsync(leaveTypeToDelete);
         
         return Unit.Value;
