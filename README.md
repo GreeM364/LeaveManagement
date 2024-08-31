@@ -1,6 +1,6 @@
-## ASP.NET Core using CQRS, MediatoR and Clean Architecture
+# ASP.NET Core Application using CQRS, MediatoR and Clean Architecture
 
-# Application Architecture
+## Application Architecture
 
 The project is organized using the Clean Architecture principles. The solution is composed of the following projects:
 
