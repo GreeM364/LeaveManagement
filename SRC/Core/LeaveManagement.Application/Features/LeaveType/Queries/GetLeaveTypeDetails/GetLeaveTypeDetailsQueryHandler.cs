@@ -23,7 +23,7 @@ public class GetLeaveTypeDetailsQueryHandler
         CancellationToken cancellationToken)
     {
         var leaveTypeDetails = await _leaveTypeRepository
-            .GetByIdAsync(request.LeaveTypeId);
+                .GetByIdAsync(request.LeaveTypeId);
         
         var result = _mapper.Map<LeaveTypeDetailsDto>(leaveTypeDetails);
 
