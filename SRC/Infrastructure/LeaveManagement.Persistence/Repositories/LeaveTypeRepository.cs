@@ -7,13 +7,14 @@ namespace LeaveManagement.Persistence.Repositories;
 
 public class LeaveTypeRepository : Repository<LeaveType>, ILeaveTypeRepository
 {
-    public LeaveTypeRepository(LeaveManagementDatabaseContext context) 
-        : base(context)
+    public LeaveTypeRepository(
+        LeaveManagementDatabaseContext context) : base(context)
     { }
 
     public async Task<bool> IsLeaveTypeUnique(string name)
     {
-        var isUnique = await _context.LeaveTypes
+        var isUnique = await _context
+            .LeaveTypes
             .AnyAsync(q => q.Name == name);
         
         return isUnique;
