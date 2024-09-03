@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LeaveManagement.Application.Exeptions;
+using LeaveManagement.Application.Interfaces.Logging;
 using LeaveManagement.Application.Interfaces.Persistence;
 using MediatR;
 
@@ -10,13 +11,16 @@ public class CreateLeaveTypeCommandHandler
 {
     private readonly IMapper _mapper;
     private readonly ILeaveTypeRepository _leaveTypeRepository;
+    private readonly IAppLogger<CreateLeaveTypeCommandHandler> _logger;
 
     public CreateLeaveTypeCommandHandler(
         IMapper mapper, 
-        ILeaveTypeRepository leaveTypeRepository)
+        ILeaveTypeRepository leaveTypeRepository, 
+        IAppLogger<CreateLeaveTypeCommandHandler> logger)
     {
         _mapper = mapper;
         _leaveTypeRepository = leaveTypeRepository;
+        _logger = logger;
     }
 
     public async Task<Guid> Handle(
@@ -30,7 +34,14 @@ public class CreateLeaveTypeCommandHandler
 
         if (validationResult.Errors.Any())
         {
-            throw new BadRequestExceptions("Invalid LeaveType", validationResult);
+            _logger.LogWarning(
+                "Validation errors in create request fpr {0} - 1",
+                nameof(Domain.LeaveType), 
+                request.Name);
+            
+            throw new BadRequestExceptions(
+                "Invalid LeaveType", 
+                validationResult);
         }
         
         var leaveType = _mapper.Map<Domain.LeaveType>(request);

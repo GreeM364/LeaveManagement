@@ -1,6 +1,8 @@
 ﻿using LeaveManagement.Application.Interfaces.Email;
+using LeaveManagement.Application.Interfaces.Logging;
 using LeaveManagement.Application.Models.Email;
 using LeaveManagement.Infrastructure.EmailService;
+using LeaveManagement.Infrastructure.Logging;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
@@ -14,6 +16,7 @@ public static class InfrastructureServicesRegistration
     {
         services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
         services.AddTransient<IEmailSender, EmailSender>();
+        services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
         
         return services;
     }
