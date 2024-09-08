@@ -15,7 +15,7 @@ public class LeaveTypeRepository : Repository<LeaveType>, ILeaveTypeRepository
     {
         var isUnique = await _context
             .LeaveTypes
-            .AnyAsync(q => q.Name == name);
+            .AnyAsync(q => q.Name == name) == false;
         
         return isUnique;
     }
