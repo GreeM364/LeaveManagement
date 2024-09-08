@@ -12,7 +12,7 @@ public class LeaveTypeConfiguration : IEntityTypeConfiguration<LeaveType>
         builder.HasData(
             new LeaveType
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Name = "Vacation",
                 DefaultDays = 10,
                 DateCreated = DateTime.Now,

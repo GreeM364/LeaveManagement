@@ -10,7 +10,7 @@ public class LeaveRequest : BaseEntity
     
     [ForeignKey("LeaveTypeId")]
     public LeaveType? LeaveType { get; set; }
-    public int LeaveTypeId { get; set; }
+    public Guid LeaveTypeId { get; set; }
     
     public DateTime DateRequested { get; set; }
     public string? RequestComments { get; set; }
