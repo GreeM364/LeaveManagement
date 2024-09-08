@@ -35,10 +35,14 @@ public class UpdateLeaveTypeCommandHandler
 
         if (validationResult.Errors.Any())
         {
-            _logger.LogWarning(
-                "Validation errors in update request fpr {0} - 1", 
+            var allErrors = string
+                .Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+
+            _logger.LogError(
+                "Validation errors in update request for {0} - {1}. Errors: {2}", 
                 nameof(Domain.LeaveType), 
-                request.Id);
+                request.Id, 
+                allErrors);
             
             throw new BadRequestExceptions(
                 "Invalid Leave type", 

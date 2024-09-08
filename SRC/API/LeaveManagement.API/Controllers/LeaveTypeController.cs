@@ -53,7 +53,8 @@ public class LeaveTypeController : ControllerBase
         
         return CreatedAtAction(
             actionName: nameof(GetLeaveTypesById), 
-            value: new { id = response });
+            routeValues: new { id = response },
+            value: response);
     }
     
     [HttpPut("{id}")]

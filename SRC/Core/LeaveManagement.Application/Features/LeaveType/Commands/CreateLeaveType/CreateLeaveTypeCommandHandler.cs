@@ -34,10 +34,14 @@ public class CreateLeaveTypeCommandHandler
 
         if (validationResult.Errors.Any())
         {
-            _logger.LogWarning(
-                "Validation errors in create request fpr {0} - 1",
+            var allErrors = string
+                .Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
+
+            _logger.LogError(
+                "Validation errors in update request for {0} - {1}. Errors: {2}", 
                 nameof(Domain.LeaveType), 
-                request.Name);
+                request.Name, 
+                allErrors);
             
             throw new BadRequestExceptions(
                 "Invalid LeaveType", 

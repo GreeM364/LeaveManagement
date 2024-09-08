@@ -22,9 +22,9 @@ public class UpdateLeaveTypeCommandValidator : AbstractValidator<UpdateLeaveType
             .WithMessage("{PropertyName} must be fewer than 70 characters");
 
         RuleFor(p => p.DefaultDays)
-            .GreaterThan(100)
-            .WithMessage("{PropertyName} cannot exceed 100")
-            .LessThan(1)
+            .LessThan(22)
+            .WithMessage("{PropertyName} cannot exceed 22")
+            .GreaterThan(1)
             .WithMessage("{PropertyName} cannot be less than 1");
 
         RuleFor(q => q)
