@@ -12,4 +12,4 @@ The project is organized using the Clean Architecture principles. The solution i
 
 ![OnionArchitecture](https://github.com/user-attachments/assets/a1d5f1ca-dab8-4925-a865-fdebeb8003ce)
 
-<img src='[{tableData.Header.ImageBase64}](https://github.com/user-attachments/assets/a1d5f1ca-dab8-4925-a865-fdebeb8003ce)' alt='Logo' style='width:150px; height:auto;'
+<img src='https://github.com/user-attachments/assets/a1d5f1ca-dab8-4925-a865-fdebeb8003ce' alt='Logo' style='width:150px; height:auto;'
