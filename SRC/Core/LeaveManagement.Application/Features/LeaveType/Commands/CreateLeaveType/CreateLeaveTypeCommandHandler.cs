@@ -38,7 +38,7 @@ public class CreateLeaveTypeCommandHandler
                 .Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
 
             _logger.LogError(
-                "Validation errors in update request for {0} - {1}. Errors: {2}", 
+                "Validation errors in create request for {0} - {1}. Errors: {2}", 
                 nameof(Domain.LeaveType), 
                 request.Name, 
                 allErrors);
