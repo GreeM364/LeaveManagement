@@ -28,8 +28,4 @@
       <ProjectReference Include="..\..\SRC\Core\LeaveManagement.Application\LeaveManagement.Application.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Features\LeaveType\" />
-    </ItemGroup>
-
 </Project>

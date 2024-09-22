@@ -1,6 +1,4 @@
-﻿using LeaveManagement.Application.Interfaces.Persistence;
-using LeaveManagement.Domain;
-using Moq;
+﻿using LeaveManagement.Domain;
 
 namespace LeaveManagement.Application.UnitTests.Mocks;
 
