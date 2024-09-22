@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using LeaveManagement.Application.Exceptions;
-using LeaveManagement.Application.Exeptions;
 using LeaveManagement.Application.Interfaces.Logging;
 using LeaveManagement.Application.Interfaces.Persistence;
 using MediatR;
@@ -48,7 +47,7 @@ public class UpdateLeaveAllocationCommandHandler : IRequestHandler<UpdateLeaveAl
                 request.LeaveTypeId, 
                 allErrors);
             
-            throw new BadRequestExceptions(
+            throw new BadRequestException(
                 "Invalid Leave Allocation Request", 
                 validationResult);
         }
@@ -56,7 +55,7 @@ public class UpdateLeaveAllocationCommandHandler : IRequestHandler<UpdateLeaveAl
         var leaveAllocation = await _leaveAllocationRepository.GetByIdAsync(request.Id);
 
         if (leaveAllocation is null)
-            throw new NotFoundExceptions(nameof(Domain.LeaveAllocation), request.Id);
+            throw new NotFoundException(nameof(Domain.LeaveAllocation), request.Id);
 
         _mapper.Map(request, leaveAllocation);
         

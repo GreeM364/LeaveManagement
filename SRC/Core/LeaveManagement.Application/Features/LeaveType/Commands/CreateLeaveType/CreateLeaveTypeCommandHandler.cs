@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LeaveManagement.Application.Exeptions;
+using LeaveManagement.Application.Exceptions;
 using LeaveManagement.Application.Interfaces.Logging;
 using LeaveManagement.Application.Interfaces.Persistence;
 using MediatR;
@@ -43,7 +43,7 @@ public class CreateLeaveTypeCommandHandler
                 request.Name, 
                 allErrors);
             
-            throw new BadRequestExceptions(
+            throw new BadRequestException(
                 "Invalid LeaveType", 
                 validationResult);
         }

@@ -1,16 +1,16 @@
 ﻿using FluentValidation.Results;
 
-namespace LeaveManagement.Application.Exeptions;
+namespace LeaveManagement.Application.Exceptions;
 
-public class BadRequestExceptions : Exception
+public class BadRequestException : Exception
 {
     public List<string> ValidationErrors { get; }
     
-    public BadRequestExceptions(
+    public BadRequestException(
         string message) : base(message)
     { }
 
-    public BadRequestExceptions(
+    public BadRequestException(
         string message,
         ValidationResult validationResult) : base(message)
     {

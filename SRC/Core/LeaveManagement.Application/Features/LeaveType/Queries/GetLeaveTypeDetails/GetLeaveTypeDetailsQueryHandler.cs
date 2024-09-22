@@ -28,7 +28,7 @@ public class GetLeaveTypeDetailsQueryHandler
         
         if (leaveTypeDetails == null)
         {
-            throw new NotFoundExceptions(nameof(LeaveType), request.LeaveTypeId);
+            throw new NotFoundException(nameof(LeaveType), request.LeaveTypeId);
         }
         
         var result = _mapper.Map<LeaveTypeDetailsDto>(leaveTypeDetails);

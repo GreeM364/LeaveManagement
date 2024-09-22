@@ -1,8 +1,8 @@
 ﻿namespace LeaveManagement.Application.Exceptions;
 
-public class NotFoundExceptions : Exception
+public class NotFoundException : Exception
 {
-    public NotFoundExceptions(
+    public NotFoundException(
         string name, 
         object key) : base($"{name} ({key}) was not found")
     { }

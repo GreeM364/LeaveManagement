@@ -16,7 +16,8 @@ public class LeaveAllocationController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public LeaveAllocationController(IMediator mediator)
+    public LeaveAllocationController(
+        IMediator mediator)
     {
         _mediator = mediator;
     }
@@ -32,7 +33,7 @@ public class LeaveAllocationController : ControllerBase
 
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(LeaveAllocationDetailsDto), StatusCodes.Status200OK)]
-    public async Task<ActionResult<LeaveAllocationDetailsDto>> GetLeaveAllocationByIds(Guid id)
+    public async Task<ActionResult<LeaveAllocationDetailsDto>> GetLeaveAllocationById(Guid id)
     {
         var query = new GetLeaveAllocationDetailsQuery()
         {
@@ -44,6 +45,7 @@ public class LeaveAllocationController : ControllerBase
         return Ok(leaveAllocationDetails);
     }
 
+    [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -52,7 +54,7 @@ public class LeaveAllocationController : ControllerBase
         var response = await _mediator.Send(leaveAllocation);
         
         return CreatedAtAction(
-            actionName: nameof(GetLeaveAllocationByIds), 
+            actionName: nameof(GetLeaveAllocationById), 
             routeValues: new { id = response },
             value: response);
     }

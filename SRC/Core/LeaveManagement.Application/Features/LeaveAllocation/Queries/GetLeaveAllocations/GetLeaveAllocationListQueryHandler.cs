@@ -22,11 +22,11 @@ public class GetLeaveAllocationListQueryHandler :
         GetLeaveAllocationListQuery request, 
         CancellationToken cancellationToken)
     {
-        var leaveAllocations = await _leaveAllocationRepository
-                .GetLeaveAllocationsWithDetails();
+        var leaveAllocations = 
+                await _leaveAllocationRepository.GetLeaveAllocationsWithDetails();
         
-        var allocations = _mapper.Map<List<LeaveAllocationDto>>(leaveAllocations);
+        var result = _mapper.Map<List<LeaveAllocationDto>>(leaveAllocations);
         
-        return allocations;
+        return result;
     }
 }

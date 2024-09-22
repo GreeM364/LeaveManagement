@@ -24,7 +24,7 @@ public class DeleteLeaveTypeCommandHandler
 
         if (leaveTypeToDelete == null)
         {
-            throw new NotFoundExceptions(nameof(LeaveType), request.Id);
+            throw new NotFoundException(nameof(LeaveType), request.Id);
         }
         
         await _leaveTypeRepository
