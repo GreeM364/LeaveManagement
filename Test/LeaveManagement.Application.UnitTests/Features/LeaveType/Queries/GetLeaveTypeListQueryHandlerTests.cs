@@ -27,15 +27,18 @@ public class GetLeaveTypeListQueryHandlerTests
     [Fact]
     public async Task GetLeaveTypeListTest()
     {
+        // Arrange
         var handler = new GetLeaveTypesQueryHandler(
                 mapper: _mapper, 
                 leaveTypeRepository: _mockRepo.Object, 
                 logger: _mockLogger.Object);
 
+        // Act
         var result = await handler.Handle(
                 request: new GetLeaveTypesQuery(), 
                 cancellationToken: CancellationToken.None);
 
+        // Assert
         result.ShouldBeOfType<List<LeaveTypeDto>>();
         result.Count.ShouldBe(3);
     }

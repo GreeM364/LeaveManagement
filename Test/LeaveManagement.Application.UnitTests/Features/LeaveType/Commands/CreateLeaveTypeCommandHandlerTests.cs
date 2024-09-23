@@ -27,6 +27,7 @@ public class CreateLeaveTypeCommandHandlerTests
     [Fact]
     public async Task Handle_ValidLeaveType()
     {
+        // Arrange
         var handler = new CreateLeaveTypeCommandHandler(
             mapper: _mapper,
             leaveTypeRepository: _mockRepo.Object,
@@ -38,9 +39,11 @@ public class CreateLeaveTypeCommandHandlerTests
             DefaultDays = 1
         };
         
+        // Act
         await handler.Handle(request, CancellationToken.None);
         var leaveTypes = await _mockRepo.Object.GetAsync();
         
+        // Assert
         leaveTypes.Count.ShouldBe(4);
     }
 }
