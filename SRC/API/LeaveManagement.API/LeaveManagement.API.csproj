@@ -9,7 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0-preview.7.24405.3">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Core\LeaveManagement.Application\LeaveManagement.Application.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\LeaveManagement.Identity\LeaveManagement.Identity.csproj" />
       <ProjectReference Include="..\..\Infrastructure\LeaveManagement.Infrastructure\LeaveManagement.Infrastructure.csproj" />
       <ProjectReference Include="..\..\Infrastructure\LeaveManagement.Persistence\LeaveManagement.Persistence.csproj" />
     </ItemGroup>

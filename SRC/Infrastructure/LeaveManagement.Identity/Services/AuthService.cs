@@ -6,6 +6,7 @@ using LeaveManagement.Application.Interfaces.Identity;
 using LeaveManagement.Application.Models.Identity;
 using LeaveManagement.Identity.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 namespace LeaveManagement.Identity.Services;
@@ -18,12 +19,12 @@ public class AuthService : IAuthService
 
     public AuthService(
         UserManager<ApplicationUser> userManager, 
-        SignInManager<ApplicationUser> signInManager, 
-        JwtSettings jwtSettings)
+        SignInManager<ApplicationUser> signInManager,
+        IOptions<JwtSettings> jwtSettings)
     {
         _userManager = userManager;
         _signInManager = signInManager;
-        _jwtSettings = jwtSettings;
+        _jwtSettings = jwtSettings.Value;
     }
 
     public async Task<AuthResponse> LoginAsync(
