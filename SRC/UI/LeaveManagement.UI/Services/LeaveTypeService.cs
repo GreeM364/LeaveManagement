@@ -78,8 +78,7 @@ public class LeaveTypeService : BaseHttpService, ILeaveTypeService
         }
     }
 
-    public async Task<Response<Guid>> DeleteLeaveTypeAsync(
-        Guid id)
+    public async Task<Response<Guid>> DeleteLeaveTypeAsync(Guid id)
     {
         try
         {

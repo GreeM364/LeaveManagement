@@ -16,6 +16,7 @@ public partial class Index
 
     public string Message { get; set; } = string.Empty;
 
+    
     protected void CreateLeaveType()
     {
         NavigationManager.NavigateTo("/leavetypes/create/");
