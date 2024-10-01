@@ -41,6 +41,7 @@ public partial class Index
         var response = await LeaveTypeService.DeleteLeaveTypeAsync(id);
         if (response.Success)
         {
+            LeaveTypes = await LeaveTypeService.GetLeaveTypesAsync();
             StateHasChanged();
         }
         else

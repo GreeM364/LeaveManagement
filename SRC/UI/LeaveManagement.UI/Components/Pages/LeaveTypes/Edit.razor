@@ -1,0 +1,46 @@
+﻿@page "/leavetypes/edit/{id:guid}"
+@attribute [Authorize(Roles = "Administrator")]
+
+<div class="container mt-1">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h3>Edit Leave Type</h3>
+        </div>
+    </div>
+
+    @if (string.IsNullOrEmpty(Message) == false)
+    {
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="alert alert-danger">
+                    @Message
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <EditForm Model="leaveType" OnValidSubmit="@EditLeaveType">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Leave Type Name</label>
+                    <InputText id="name" class="form-control" @bind-Value="leaveType.Name" />
+                    <ValidationMessage For="@(() => leaveType.Name)" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="defaultDays" class="form-label">Default Number Of Days</label>
+                    <InputNumber id="defaultDays" class="form-control" @bind-Value="leaveType.DefaultDays" />
+                    <ValidationMessage For="@(() => leaveType.DefaultDays)" />
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </EditForm>
+        </div>
+    </div>
+</div>

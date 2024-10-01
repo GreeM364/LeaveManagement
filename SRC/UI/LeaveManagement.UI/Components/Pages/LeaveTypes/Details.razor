@@ -1,0 +1,29 @@
+﻿@page "/leavetypes/details/{id:guid}"
+
+<div class="container mt-1">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h3>Leave Type Details</h3>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label class="form-label">Leave Type Name</label>
+                <input type="text" class="form-control" value="@leaveType.Name" disabled />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Default Number Of Days</label>
+                <input type="text" class="form-control" value="@leaveType.DefaultDays" disabled />
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-6 text-center">
+            <button class="btn btn-secondary" @onclick="GoBack">Back to List</button>
+        </div>
+    </div>
+</div>
