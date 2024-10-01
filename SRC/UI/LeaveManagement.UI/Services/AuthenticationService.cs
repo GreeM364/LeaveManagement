@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Blazored.LocalStorage;
+﻿using Blazored.LocalStorage;
 using LeaveManagement.UI.Interfaces;
 using LeaveManagement.UI.Providers;
 using LeaveManagement.UI.Services.Base;
