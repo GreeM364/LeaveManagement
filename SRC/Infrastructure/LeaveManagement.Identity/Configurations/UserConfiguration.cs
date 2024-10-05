@@ -13,7 +13,7 @@ public class UserConfiguration : IEntityTypeConfiguration<ApplicationUser>
         builder.HasData(
             new ApplicationUser
             {
-                Id = "8e445865-a24d-4543-a6c6-9443d048cdb9",
+                Id = Guid.Parse("8e445865-a24d-4543-a6c6-9443d048cdb9"),
                 Email = "admin@localhost.com",
                 NormalizedEmail = "ADMIN@LOCALHOST.COM",
                 FirstName = "System",
@@ -25,7 +25,7 @@ public class UserConfiguration : IEntityTypeConfiguration<ApplicationUser>
             },
             new ApplicationUser
             {
-                Id = "9e224968-33e4-4652-b7b7-8574d048cdb9",
+                Id = Guid.Parse("9e224968-33e4-4652-b7b7-8574d048cdb9"),
                 Email = "user@localhost.com",
                 NormalizedEmail = "USER@LOCALHOST.COM",
                 FirstName = "System",

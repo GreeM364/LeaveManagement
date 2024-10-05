@@ -23,7 +23,7 @@ public class LeaveAllocationController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(List<LeaveAllocationDto>), StatusCodes.Status200OK)]
-    public async Task<ActionResult<List<LeaveAllocationDto>>> GetLeaveAllocations()
+    public async Task<ActionResult<List<LeaveAllocationDto>>> GetLeaveAllocations(bool isLoggedInUser = false)
     {
         var leaveAllocations = await _mediator.Send(new GetLeaveAllocationListQuery());
         

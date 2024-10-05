@@ -11,6 +11,9 @@ public partial class Index
 
     [Inject] 
     public ILeaveTypeService LeaveTypeService { get; set; }
+    
+    [Inject] 
+    public ILeaveAllocationService LeaveAllocationService { get; set; }
 
     public List<LeaveTypeViewModel> LeaveTypes { get; private set; }
 
@@ -24,6 +27,7 @@ public partial class Index
 
     protected void AllocateLeaveType(Guid id)
     {
+        LeaveAllocationService.CreateLeaveAllocations(id);
     }
 
     protected void EditLeaveType(Guid id)

@@ -1,23 +1,24 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using LeaveManagement.Identity.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LeaveManagement.Identity.Configurations;
 
-public class RoleConfiguration : IEntityTypeConfiguration<IdentityRole>
+public class RoleConfiguration : IEntityTypeConfiguration<ApplicationRole>
 {
-    public void Configure(EntityTypeBuilder<IdentityRole> builder)
+    public void Configure(EntityTypeBuilder<ApplicationRole> builder)
     {
         builder.HasData(
-            new IdentityRole
+            new ApplicationRole
             {
-                Id = "cac43a6e-f7bb-4448-baaf-1add431ccbbf",
+                Id = Guid.Parse("cac43a6e-f7bb-4448-baaf-1add431ccbbf"),
                 Name = "Employee",
                 NormalizedName = "EMPLOYEE"
             },
-            new IdentityRole
+            new ApplicationRole
             {
-                Id = "cbc43a8e-f7bb-4445-baaf-1add431ffbbf",
+                Id = Guid.Parse("cbc43a8e-f7bb-4445-baaf-1add431ffbbf"),
                 Name = "Administrator",
                 NormalizedName = "ADMINISTRATOR"
             }

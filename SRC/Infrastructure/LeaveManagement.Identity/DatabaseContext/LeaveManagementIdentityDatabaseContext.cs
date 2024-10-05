@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LeaveManagement.Identity.DatabaseContext;
 
-public class LeaveManagementIdentityDatabaseContext : IdentityDbContext<ApplicationUser>
+public class LeaveManagementIdentityDatabaseContext 
+    : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
 {
     public LeaveManagementIdentityDatabaseContext(
         DbContextOptions<LeaveManagementIdentityDatabaseContext> options)

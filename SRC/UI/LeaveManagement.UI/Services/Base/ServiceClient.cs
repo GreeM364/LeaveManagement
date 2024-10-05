@@ -2275,10 +2275,10 @@ namespace LeaveManagement.UI.Services.Base
         public int DefaultDays { get; set; }
 
         [System.Text.Json.Serialization.JsonPropertyName("dateCreated")]
-        public System.DateTimeOffset DateCreated { get; set; }
+        public System.DateTime DateCreated { get; set; }
 
         [System.Text.Json.Serialization.JsonPropertyName("dateModified")]
-        public System.DateTimeOffset DateModified { get; set; }
+        public System.DateTime DateModified { get; set; }
 
     }
 

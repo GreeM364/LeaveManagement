@@ -27,7 +27,7 @@ public static class IdentityServicesRegistration
                 configuration.GetConnectionString("LeaveManagementConnectionString"));
         });
 
-        services.AddIdentity<ApplicationUser, IdentityRole>()
+        services.AddIdentity<ApplicationUser, ApplicationRole>()
             .AddEntityFrameworkStores<LeaveManagementIdentityDatabaseContext>()
             .AddDefaultTokenProviders();
 
