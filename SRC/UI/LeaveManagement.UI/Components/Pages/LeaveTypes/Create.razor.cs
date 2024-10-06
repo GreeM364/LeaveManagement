@@ -15,7 +15,7 @@ public partial class Create
     
     public string Message { get; private set; }
 
-    LeaveTypeViewModel leaveType = new LeaveTypeViewModel();
+    LeaveTypeViewModel leaveType = new ();
     
     protected async Task CreateLeaveType()
     {

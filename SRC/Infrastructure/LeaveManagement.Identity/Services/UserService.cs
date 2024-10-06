@@ -1,6 +1,8 @@
-﻿using LeaveManagement.Application.Interfaces.Identity;
+﻿using System.Security.Claims;
+using LeaveManagement.Application.Interfaces.Identity;
 using LeaveManagement.Application.Models.Identity;
 using LeaveManagement.Identity.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
 namespace LeaveManagement.Identity.Services;
@@ -8,11 +10,20 @@ namespace LeaveManagement.Identity.Services;
 public class UserService : IUserService
 {
     private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
     public UserService(
-        UserManager<ApplicationUser> userManager)
+        UserManager<ApplicationUser> userManager,
+        IHttpContextAccessor httpContextAccessor)
     {
         _userManager = userManager;
+        _httpContextAccessor = httpContextAccessor;
+    }
+    
+    public Guid UserId 
+    { 
+        get => Guid.Parse(_httpContextAccessor.HttpContext?.User
+            .FindFirstValue("uid") ?? string.Empty); 
     }
 
     public async Task<List<Employee>> GetEmployeesAsync()

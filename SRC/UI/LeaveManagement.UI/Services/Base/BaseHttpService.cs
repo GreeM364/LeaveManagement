@@ -45,16 +45,4 @@ public class BaseHttpService
             };
         }
     }
-
-    protected async Task AddBearerTokenAsync()
-    {
-        if (await _localStorageService.ContainKeyAsync("token"))
-        {
-            var token = await _localStorageService.GetItemAsync<string>("token");
-            
-            _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
-                scheme: "Bearer", 
-                parameter: token);
-        }
-    }
 }

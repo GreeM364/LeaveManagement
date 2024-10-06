@@ -15,7 +15,7 @@ public partial class Details
     [Parameter]
     public Guid id { get; set; }
 
-    LeaveTypeViewModel leaveType = new LeaveTypeViewModel();
+    LeaveTypeViewModel leaveType = new ();
 
     
     protected override async Task OnParametersSetAsync()

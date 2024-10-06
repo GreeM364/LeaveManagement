@@ -17,7 +17,7 @@ public partial class Edit
     
     public string Message { get; private set; }
     
-    LeaveTypeViewModel leaveType = new LeaveTypeViewModel();
+    LeaveTypeViewModel leaveType = new ();
     
 
     protected override async Task OnParametersSetAsync()
